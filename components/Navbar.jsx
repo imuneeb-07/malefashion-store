@@ -1,9 +1,13 @@
 'use client'
 import React, { useState } from "react";
 import Link from "next/link";
-
+import { useContext } from "react";
+import { GlobalState } from "@/Context/Context";
 
 const Navbar = () => {
+
+ const {cart} = useContext(GlobalState)
+ console.log(cart)
 
     const [open,setOpen] = useState(false)
 
@@ -38,9 +42,11 @@ const Navbar = () => {
         <div className="hidden md:block ">
             <i className="bx p-4 cursor-pointer  text-xl bx-search  "/>
             <i className="bx p-4 cursor-pointer text-xl bx-heart "/>
-            <i className="bx p-4 cursor-pointer text-xl bx-cart "/>
+          <Link href='/cart'><i className="bx p-4 cursor-pointer text-xl bx-cart "/></Link>  
+           {cart.totalItems}
+         
         </div>
-
+        
 
     {/* mobile navbar */}
 
@@ -49,8 +55,8 @@ const Navbar = () => {
         <div className="flex  items-center justify-around">
             <i className="bx p-2 cursor-pointer text-xl bx-search  "/>
             <i className="bx p-2 cursor-pointer text-xl bx-heart "/>
-            <i className="bx p-2 cursor-pointer text-xl bx-cart "/>
-        </div>
+            <Link href='/cart'><i className="bx p-2 cursor-pointer text-xl bx-cart "/></Link>  
+            </div>
 
             <ul className="p-2 text-center">
                 <li>

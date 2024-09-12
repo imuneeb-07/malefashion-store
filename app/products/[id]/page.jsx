@@ -77,7 +77,7 @@ const selectedPro = products.filter(v=>{
     <span className='px-2 text-2xl text-red-500 font-bold '>Rs {selectedPro[0].price}</span>
 </div>
 
-<Quantity/>
+<Quantity product={selectedPro[0]}/>
 
     </div> 
     </div>
